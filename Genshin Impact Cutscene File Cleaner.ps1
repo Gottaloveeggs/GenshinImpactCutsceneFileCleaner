@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------------------
-# Script Name: Genshin Video Asset Cleaner
+# Script Name: Genshin Impact Cutscene File Cleaner
 # Description: Deletes specific video assets based on user selection.
-#              Sends files to Recycle Bin for safety.
+#              Sends files to Recycle Bin.
 # -----------------------------------------------------------------------------
 
 # --- ADMIN CHECK ---
@@ -254,5 +254,6 @@ do {
         Write-Host "Press Enter to return to menu..."
         $null = Read-Host
     }
+
 
 } until ($false)
