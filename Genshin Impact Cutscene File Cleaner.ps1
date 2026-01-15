@@ -111,7 +111,8 @@ do {
     Write-Host "8. Natlan related files"
     Write-Host "9. Nod-Krai related files"
     Write-Host "10. Other/Misc files"
-    Write-Host "11. Undo (Open Recycle Bin)"
+    Write-Host "11. Open Cutscene Folder"
+    Write-Host "12. Undo (Open Recycle Bin)"
     Write-Host "Q. Quit"
     Write-Host ""
     Write-Host "Tip: You can select multiple (e.g., '1, 2') or ranges (e.g., '3-5')" -ForegroundColor Gray
@@ -144,7 +145,7 @@ do {
     
     # We will build a list of "Task Objects" to keep categories separate for display
     $searchTasks = @()
-    $isUndo = $false
+    $bypassSearch = $false
 
     foreach ($sel in $selections) {
         switch ($sel) {
@@ -158,10 +159,15 @@ do {
             "8" { $searchTasks += [PSCustomObject]@{ Name="Natlan"; Patterns=@("*Natlan*") } }
             "9" { $searchTasks += [PSCustomObject]@{ Name="Nod-Krai"; Patterns=@("*NodKrai*") } }
             "10" { $searchTasks += [PSCustomObject]@{ Name="Other/Misc"; Patterns=@("Video_Reunion_63.usm", "battlePass.usm", "*ShieldingResources*", "*Memories*") } }
-            "11" { 
+            "11" {
+                Write-Host "Opening Cutscene Folder..." -ForegroundColor Cyan
+                Invoke-Item $TargetDir
+                $bypassSearch = $true
+            }
+            "12" { 
                 Write-Host "Opening Recycle Bin..." -ForegroundColor Cyan
                 Start-Process "explorer.exe" -ArgumentList "shell:RecycleBinFolder"
-                $isUndo = $true
+                $bypassSearch = $true
             }
             Default { 
                 # Ignore invalid inputs
@@ -169,8 +175,8 @@ do {
         }
     }
 
-    if ($isUndo) {
-        Write-Host "Tip: You can restore deleted files by right-clicking them in the Recycle Bin."
+    if ($bypassSearch) {
+        Write-Host "Action opened in external window."
         Write-Host "Press Enter to continue..."
         $null = Read-Host
         continue
@@ -255,6 +261,4 @@ do {
         $null = Read-Host
     }
 
-
 } until ($false)
-
