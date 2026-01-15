@@ -2,6 +2,8 @@
 # Script Name: Genshin Impact Cutscene File Cleaner
 # Description: Deletes specific video assets based on user selection.
 #              Sends files to Recycle Bin.
+# Version 1.0 
+# GI Version 6.3/Luna 4
 # -----------------------------------------------------------------------------
 
 # --- ADMIN CHECK ---
@@ -262,3 +264,4 @@ do {
     }
 
 } until ($false)
+
