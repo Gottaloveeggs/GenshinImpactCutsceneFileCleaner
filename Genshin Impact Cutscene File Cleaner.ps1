@@ -96,7 +96,7 @@ do {
     Write-Host "==========================================" -ForegroundColor Cyan
     Write-Host "DISCLAIMER: Use at your own risk." -ForegroundColor Red
     Write-Host "NOTE: Updates or 'Verifying Integrity' will restore these files." -ForegroundColor Red
-    Write-Host "Repo: https://github.com/YourUsername/GenshinCleaner" -ForegroundColor DarkGray
+    Write-Host "Repo: https://github.com/Gottaloveeggs/GenshinImpactCutsceneFileCleaner" -ForegroundColor DarkGray
     Write-Host "------------------------------------------" -ForegroundColor DarkCyan
     Write-Host "Folder Total Size: $formattedTotal" -ForegroundColor White
     Write-Host ""
@@ -257,3 +257,4 @@ do {
 
 
 } until ($false)
+
